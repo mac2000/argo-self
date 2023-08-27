@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cert-manager-issuers
+  namespace: argocd
+  labels:
+    app: cert-manager-issuers
+  annotations:
+    argocd.argoproj.io/sync-wave: "-90"
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  revisionHistoryLimit: 10
+  project: default
+  info:
+    - name: "Example:"
+      value: "https://example.com"
+  source:
+    repoURL: https://github.com/mac2000/argo-self
+    targetRevision: HEAD
+    path: cert-manager-issuers
+  destination:
+    server: https://kubernetes.default.svc
+    # namespace: default # dev, test2, production
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

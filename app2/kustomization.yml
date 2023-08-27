@@ -1,0 +1,16 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - deployment.yml
+
+configMapGenerator:
+  - name: app2
+    files:
+      - index.html
+
+commonLabels:
+  app: app2
+
+generatorOptions:
+  disableNameSuffixHash: true

@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo1
+  template:
+    metadata:
+      labels:
+        app: demo1
+    spec:
+      containers:
+        - image: nginx:alpine
+          name: demo1
+          ports:
+            - containerPort: 80
+          resources:
+            limits:
+              memory: 128Mi
+              cpu: 500m
+          volumeMounts:
+            - name: demo1
+              mountPath: /usr/share/nginx/html
+              readOnly: true
+      volumes:
+        - name: demo1
+          configMap:
+            name: demo1

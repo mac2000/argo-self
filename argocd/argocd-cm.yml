@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-cm
+data:
+  # admin.enabled: "false"
+  accounts.mac: apiKey, login
+  ui.cssurl: "./custom/robota.css"
+# argocd admin initial-password -n argocd
+# argocd login localhost:8080
+# argocd account list
+# argocd account update-password --account=mac

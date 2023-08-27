@@ -1,0 +1,9 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: app1
+spec:
+  selector:
+    app: app1
+  ports:
+    - port: 80

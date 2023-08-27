@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: demo1
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+  labels:
+    name: demo1
+spec:
+  revisionHistoryLimit: 3
+  project: default
+  info:
+    - name: "Example:"
+      value: "https://example.com"
+  source:
+    repoURL: https://github.com/mac2000/argo-self
+    targetRevision: HEAD
+    path: demo1
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default # dev, test2, production
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

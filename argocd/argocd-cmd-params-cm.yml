@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-cmd-params-cm
+data:
+  applicationsetcontroller.log.format: json
+  contoller.log.format: json
+  reposerver.log.format: json
+  server.log.format: json
+  notificationscontroller.log.format: json
+  notificationscontroller.log.level: debug
+  notifications.log.format: json
+  notifications.log.level: debug
