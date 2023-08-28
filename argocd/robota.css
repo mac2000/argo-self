@@ -56,8 +56,7 @@ button[qe-id="applications-list-button-new-app"] {
 }
 
 .applications-list__info .row:nth-child(9),
-.applications-list__info .row:nth-child(10),
-.applications-list__info .row:nth-child(11) {
+.applications-list__info .row:nth-child(10) {
   display: none;
 }
 
