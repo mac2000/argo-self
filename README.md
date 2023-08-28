@@ -1,5 +1,7 @@
 # Quick start
 
+![screenshot](screenshot.png)
+
 ```bash
 # kubernetes cluster
 cat <<EOF | kind create cluster --config=-
