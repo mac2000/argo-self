@@ -5,5 +5,6 @@ resources:
   - deployment.yml
   - service.yml
   - ingress.yml
+  - demo.yml
 # kubectl kustomize argo
 # kubectl apply -k argo
